@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Playfair Display', ui-serif, Georgia, serif;
+
+    /* Red and gold, matching the restaurant's interior. Gold is for dark backgrounds only;
+       on brand-red use it for large text (3.95:1) and gold-light for body text. */
+    --color-brand-red: #a8121a;
+    --color-brand-red-dark: #6f0a10;
+    --color-brand-gold: #e6b422;
+    --color-brand-gold-light: #f6dc8c;
+    --color-brand-cream: #fdf6e3;
+    --color-brand-ink: #2a1708;
+}
