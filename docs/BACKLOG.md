@@ -8,7 +8,7 @@ Fragen-Nummern beziehen sich auf `OPEN_QUESTIONS.md`.
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
 |---|---|---|---|---|
 | S-01 | Laravel-Projekt mit Livewire + Tailwind anlegen | P1 | done | Startseite lädt lokal, Tailwind-Klassen wirken |
-| S-02 | Git-Repo + GitHub-Remote | P1 | doing | Erster Commit gepusht, `.env` ignoriert – lokales Repo + Commit vorhanden, GitHub-Remote/Push fehlt |
+| S-02 | Git-Repo + GitHub-Remote | P1 | done | Erster Commit gepusht, `.env` ignoriert |
 | S-03 | `config/restaurant.php` mit Stammdaten | P1 | done | Views lesen Name/Adresse/Telefon/Zeiten nur aus Config |
 | S-04 | Lokale Fonts, kein externes CDN | P1 | done | Netzwerk-Tab zeigt keine Drittanbieter-Requests |
 | S-05 | Mehrsprachigkeit Deutsch/Englisch | P1 | done | Texte in `lang/de` und `lang/en`, Sprachumschalter im Header, Deutsch ist Standard |
