@@ -17,19 +17,19 @@ Fragen-Nummern beziehen sich auf `OPEN_QUESTIONS.md`.
 ## Epic 1 – Inhalte
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
 |---|---|---|---|---|
-| C-01 | Speisekarten-Fotos in `resources/images/speisekarte/` ablegen | P1 | todo | Alle Seiten der Karte vorhanden und lesbar |
-| C-02 | Migrationen + Models `MenuCategory`, `MenuItem` | P1 | todo | Felder: Nummer, Name und Beschreibung (DE + EN), Preis (Cent, int), Sortierung, Allergene (nullable) |
-| C-03 | `MenuSeeder`: Karte abtippen | P1 | blocked (C-01) | Alle Gerichte/Preise/Allergene wie auf der Karte, nichts erfunden; englische Namen übersetzt |
-| C-04 | Essensfotos auswählen und optimieren (WebP, ~200 KB) | P2 | todo | Liegen in `resources/images/gerichte/`; Originale haben geringe Auflösung, daher nur klein einsetzen |
-| C-05 | Texte für Hero und Über uns | P1 | todo | Kurz, Deutsch und Englisch, nennt Abholung und „keine Lieferung“ |
-| C-06 | Admin-Bereich zur Pflege der Speisekarte (z. B. Filament) | P2 | todo | Inhaber kann nach Login Kategorien, Gerichte, Preise und Allergene ändern; ohne Login nicht erreichbar |
+| C-01 | Speisekarten-Fotos in `resources/images/speisekarte/` ablegen | P1 | done | Alle Seiten der Karte vorhanden und lesbar (Seite 2 nur in geringer Auflösung, siehe Frage 17) |
+| C-02 | Migrationen + Models `MenuCategory`, `MenuItem` | P1 | done | Felder: Nummer, Name und Beschreibung (DE + EN), Preis (Cent, int), Sortierung, Allergene (nullable), scharf |
+| C-03 | `MenuSeeder`: Karte abtippen | P1 | done | Alle Gerichte/Preise/Allergene wie auf der Karte, nichts erfunden; englische Namen übersetzt. Legende in `lang/*/menu.php`. Unsichere Kürzel: Frage 17 |
+| C-04 | Essensfotos auswählen und optimieren (WebP, ~200 KB) | P2 | blocked (Fotos fehlen) | Liegen in `resources/images/gerichte/`; Originale haben geringe Auflösung, daher nur klein einsetzen |
+| C-05 | Texte für Hero und Über uns | P1 | done | Kurz, Deutsch und Englisch, nennt Abholung und „keine Lieferung“ (`site.intro`, `site.about.*`; Einbau der Über-uns-Sektion in P-04) |
+| C-06 | Admin-Bereich zur Pflege der Speisekarte (Filament, `/admin`) | P2 | done | Inhaber kann nach Login Kategorien, Gerichte, Preise und Allergene ändern; ohne Login nicht erreichbar. Konto anlegen: `php artisan make:filament-user` |
 
 ## Epic 2 – Seite bauen
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
 |---|---|---|---|---|
 | P-01 | Layout: Header (sticky, Anker-Navigation), Footer | P1 | todo | Mobil kompakte Navigation |
 | P-02 | Hero-Sektion | P1 | todo | Foto, Name, `tel:`-Button, heutige Öffnungszeit |
-| P-03 | Speisekarte-Sektion | P1 | blocked (C-03) | Kategorien als Tabs/Sprungmarken, Preise rechtsbündig, mobil lesbar |
+| P-03 | Speisekarte-Sektion | P1 | todo | Kategorien als Tabs/Sprungmarken, Preise rechtsbündig, mobil lesbar |
 | P-04 | Über-uns-Sektion | P2 | todo | Frisch zubereitet, Vorbestellung möglich |
 | P-05 | Kontakt-Sektion | P1 | todo | Adresse, Telefon, Öffnungszeiten-Tabelle, Karte DSGVO-konform |
 | P-06 | Anzeige „Jetzt geöffnet / geschlossen“ | P3 | todo | Aus Config, Zeitzone Europe/Berlin, Samstag und Feiertage (NRW) nur 17–22 Uhr |
@@ -51,7 +51,7 @@ Fragen-Nummern beziehen sich auf `OPEN_QUESTIONS.md`.
 |---|---|---|---|---|
 | L-01 | Impressum | P1 | blocked (Frage 6) | Angaben nach § 5 DDG |
 | L-02 | Datenschutzerklärung | P1 | todo | Deckt Hosting, Formular, Mailversand ab (Generator nutzen) |
-| L-03 | Allergen-Kennzeichnung | P1 | blocked (C-03) | Allergene je Gericht wie auf der Karte, mit Legende |
+| L-03 | Allergen-Kennzeichnung | P1 | todo | Allergene je Gericht wie auf der Karte, mit Legende |
 
 ## Epic 5 – Launch
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |

@@ -15,22 +15,28 @@ asia-express/
 ├── config/
 │   └── restaurant.php         Name, Adresse, Telefon, Öffnungszeiten, Sprachen, Mail-Empfänger
 ├── lang/
-│   ├── de/site.php            UI-Texte Deutsch (Standard)
-│   └── en/site.php            UI-Texte Englisch
+│   ├── de/site.php            UI-Texte Deutsch (Standard), inkl. Hero (`intro`) und Über uns (`about.*`)
+│   ├── en/site.php            UI-Texte Englisch
+│   ├── {de,en}/menu.php       Legende der Zusatzstoffe (1–13) und Allergene (A–N) wie auf der Karte
+│   └── {de,en}/admin.php      Beschriftungen im Admin-Bereich
 ├── app/
 │   ├── Http/Middleware/
 │   │   └── SetLocale.php      setzt die Sprache anhand des URL-Präfixes (/en)
 │   ├── Models/
-│   │   ├── MenuCategory.php   (geplant) Kategorie (Vorspeisen, Ente, Menüs …)
-│   │   └── MenuItem.php       (geplant) Gericht: Nummer, Name, Beschreibung, Preis, Allergene
+│   │   ├── MenuCategory.php   Kategorie (Vorspeisen, Ente, Menüs …); `name` liefert die aktuelle Sprache
+│   │   ├── MenuItem.php       Gericht: Nummer, Name, Beschreibung, Preis (Cent), scharf, Allergene; `name`, `description`, `formatted_price`
+│   │   └── User.php           Login für den Admin-Bereich (anlegen mit `php artisan make:filament-user`)
+│   ├── Filament/Resources/    Admin-Bereich `/admin` (Filament): MenuCategories, MenuItems
+│   ├── Providers/Filament/
+│   │   └── AdminPanelProvider.php   Konfiguration des Admin-Bereichs (Pfad, Farbe, Login)
 │   ├── Livewire/
 │   │   └── PreorderForm.php   (geplant) Vorbestellungs-Formular
 │   └── Mail/
 │       └── PreorderReceived.php   (geplant) Mail ans Restaurant
 ├── database/
-│   ├── migrations/            (geplant) menu_categories, menu_items
+│   ├── migrations/            menu_categories, menu_items
 │   └── seeders/
-│       └── MenuSeeder.php     (geplant) Karte, abgetippt aus resources/images/speisekarte
+│       └── MenuSeeder.php     Karte, abgetippt aus resources/images/speisekarte; füllt nur eine leere Karte
 ├── resources/
 │   ├── images/
 │   │   ├── logo.jpeg          Logo des Restaurants
@@ -47,7 +53,7 @@ asia-express/
 │   └── css/app.css            Tailwind, Theme-Farben `brand-*` (Rot/Gold), Schriften
 ├── vite.config.js             Vite, Tailwind, lokale Fonts aus `@fontsource`-Paketen
 ├── routes/web.php             / (Deutsch), /en (Englisch); geplant: /impressum, /datenschutz
-└── tests/Feature/             Seite lädt in beiden Sprachen; geplant: Formular validiert, Mail wird verschickt
+└── tests/Feature/             Seite lädt in beiden Sprachen, Seeder/Models, Admin-Bereich nur mit Login, Sprachdateien vollständig; geplant: Formular validiert, Mail wird verschickt
 ```
 
 ## Seitenaufbau (One-Pager, Reihenfolge)
