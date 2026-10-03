@@ -27,13 +27,13 @@ Fragen-Nummern beziehen sich auf `OPEN_QUESTIONS.md`.
 ## Epic 2 – Seite bauen
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
 |---|---|---|---|---|
-| P-01 | Layout: Header (sticky, Anker-Navigation), Footer | P1 | todo | Mobil kompakte Navigation |
-| P-02 | Hero-Sektion | P1 | todo | Foto, Name, `tel:`-Button, heutige Öffnungszeit |
-| P-03 | Speisekarte-Sektion | P1 | todo | Kategorien als Tabs/Sprungmarken, Preise rechtsbündig, mobil lesbar |
-| P-04 | Über-uns-Sektion | P2 | todo | Frisch zubereitet, Vorbestellung möglich |
-| P-05 | Kontakt-Sektion | P1 | todo | Adresse, Telefon, Öffnungszeiten-Tabelle, Karte DSGVO-konform |
-| P-06 | Anzeige „Jetzt geöffnet / geschlossen“ | P3 | todo | Aus Config, Zeitzone Europe/Berlin, Samstag und Feiertage (NRW) nur 17–22 Uhr |
-| P-07 | SEO-Grundlagen | P2 | todo | Title, Description, Open-Graph-Bild, `schema.org/Restaurant` JSON-LD |
+| P-01 | Layout: Header (sticky, Anker-Navigation), Footer | P1 | done | Mobil kompakte Navigation (zweizeilig, ohne JavaScript). Footer-Links zu Impressum/Datenschutz folgen mit L-01/L-02; Anker „Vorbestellung“ mit O-01 |
+| P-02 | Hero-Sektion | P1 | done | Foto, Name, `tel:`-Button, heutige Öffnungszeit. Als Bild dient vorerst das Logo, bis Essensfotos da sind (C-04) |
+| P-03 | Speisekarte-Sektion | P1 | done | Kategorien als Tabs/Sprungmarken, Preise rechtsbündig, mobil lesbar |
+| P-04 | Über-uns-Sektion | P2 | done | Frisch zubereitet, Vorbestellung möglich |
+| P-05 | Kontakt-Sektion | P1 | done | Adresse, Telefon, Öffnungszeiten-Tabelle, Karte DSGVO-konform (Google Maps erst nach Klick, zusätzlich Link) |
+| P-06 | Anzeige „Jetzt geöffnet / geschlossen“ | P3 | done | Aus Config, Zeitzone Europe/Berlin, Samstag und Feiertage (NRW) nur 17–22 Uhr (`App\Support\OpeningHours`; Feiertagszeiten siehe Frage 18) |
+| P-07 | SEO-Grundlagen | P2 | done | Title, Description, Open-Graph-Bild (Logo), `schema.org/Restaurant` JSON-LD, Canonical + hreflang |
 
 ## Epic 3 – Vorbestellung
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
@@ -50,8 +50,8 @@ Fragen-Nummern beziehen sich auf `OPEN_QUESTIONS.md`.
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
 |---|---|---|---|---|
 | L-01 | Impressum | P1 | blocked (Frage 6) | Angaben nach § 5 DDG |
-| L-02 | Datenschutzerklärung | P1 | todo | Deckt Hosting, Formular, Mailversand ab (Generator nutzen) |
-| L-03 | Allergen-Kennzeichnung | P1 | todo | Allergene je Gericht wie auf der Karte, mit Legende |
+| L-02 | Datenschutzerklärung | P1 | todo | Deckt Hosting, Formular, Mailversand und die Google-Maps-Karte (Laden nach Klick) ab (Generator nutzen) |
+| L-03 | Allergen-Kennzeichnung | P1 | done | Allergene je Gericht wie auf der Karte, mit Legende (in der Speisekarte-Sektion; unsichere Kürzel siehe Frage 17) |
 
 ## Epic 5 – Launch
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |

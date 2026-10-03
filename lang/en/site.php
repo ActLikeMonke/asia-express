@@ -7,6 +7,38 @@ return [
     'intro' => 'Freshly cooked – eat in or pre-order for pickup. No delivery.',
     'call' => 'Call now',
 
+    'nav' => [
+        'label' => 'Main navigation',
+        'menu' => 'Menu',
+        'about' => 'About us',
+        'contact' => 'Contact',
+    ],
+
+    'hero' => [
+        'logo_alt' => ':name logo',
+        'open_now' => 'Open now',
+        'closed_now' => 'Closed right now',
+        'today' => 'Open today',
+        'closed_today' => 'Closed today',
+    ],
+
+    'menu' => [
+        'title' => 'Menu',
+        'categories' => 'Menu categories',
+        'note' => 'The superscript codes refer to additives and allergens. You will find the key at the end of the menu.',
+        'empty' => 'The menu will follow shortly.',
+    ],
+
+    'contact' => [
+        'title' => 'Contact',
+        'address' => 'Address',
+        'phone' => 'Phone',
+        'map_notice' => 'Loading the map transfers data (e.g. your IP address) to Google.',
+        'map_load' => 'Load map',
+        'map_open' => 'Open in Google Maps',
+        'map_title' => 'Map: :address',
+    ],
+
     'about' => [
         'title' => 'About us',
         'text' => 'At :name we cook Chinese dishes fresh for you – from fried noodles to our popular duck dishes. Our restaurant is small and cosy.',

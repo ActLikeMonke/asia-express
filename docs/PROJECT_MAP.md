@@ -20,8 +20,12 @@ asia-express/
 │   ├── {de,en}/menu.php       Legende der Zusatzstoffe (1–13) und Allergene (A–N) wie auf der Karte
 │   └── {de,en}/admin.php      Beschriftungen im Admin-Bereich
 ├── app/
+│   ├── Http/Controllers/
+│   │   └── HomeController.php lädt Speisekarte, heutige Öffnungszeit und JSON-LD für den One-Pager
 │   ├── Http/Middleware/
 │   │   └── SetLocale.php      setzt die Sprache anhand des URL-Präfixes (/en)
+│   ├── Support/
+│   │   └── OpeningHours.php   heutige Zeiten, „jetzt geöffnet“, Feiertage NRW (aus config/restaurant.php)
 │   ├── Models/
 │   │   ├── MenuCategory.php   Kategorie (Vorspeisen, Ente, Menüs …); `name` liefert die aktuelle Sprache
 │   │   ├── MenuItem.php       Gericht: Nummer, Name, Beschreibung, Preis (Cent), scharf, Allergene; `name`, `description`, `formatted_price`
@@ -43,17 +47,18 @@ asia-express/
 │   │   ├── speisekarte/       Fotos der Speisekarte (Quelle zum Abtippen)
 │   │   └── gerichte/          Essensfotos für die Webseite
 │   ├── views/
-│   │   ├── layouts/app.blade.php            Grundlayout, Header mit Sprachumschalter, Footer
-│   │   ├── home.blade.php                   One-Pager (bisher Hero + Öffnungszeiten als Platzhalter)
-│   │   ├── sections/                        (geplant) hero, menu, about, preorder, contact
+│   │   ├── layouts/app.blade.php            Grundlayout, Header mit Anker-Navigation und Sprachumschalter, Footer
+│   │   ├── home.blade.php                   One-Pager: SEO-Tags, JSON-LD, bindet die Sektionen ein
+│   │   ├── sections/                        hero, menu, about, contact; (geplant) preorder
 │   │   ├── livewire/preorder-form.blade.php (geplant)
 │   │   ├── mail/preorder-received.blade.php (geplant)
 │   │   ├── impressum.blade.php              (geplant)
 │   │   └── datenschutz.blade.php            (geplant)
+│   ├── js/app.js              Karte erst nach Klick laden; macht das Logo für `Vite::asset()` verfügbar
 │   └── css/app.css            Tailwind, Theme-Farben `brand-*` (Rot/Gold), Schriften
 ├── vite.config.js             Vite, Tailwind, lokale Fonts aus `@fontsource`-Paketen
 ├── routes/web.php             / (Deutsch), /en (Englisch); geplant: /impressum, /datenschutz
-└── tests/Feature/             Seite lädt in beiden Sprachen, Seeder/Models, Admin-Bereich nur mit Login, Sprachdateien vollständig; geplant: Formular validiert, Mail wird verschickt
+└── tests/                     Unit: Öffnungszeiten/Feiertage. Feature: Seite lädt in beiden Sprachen, Sektionen, SEO, Karte ohne Einbettung, Seeder/Models, Admin-Bereich nur mit Login, Sprachdateien vollständig; geplant: Formular validiert, Mail wird verschickt
 ```
 
 ## Seitenaufbau (One-Pager, Reihenfolge)

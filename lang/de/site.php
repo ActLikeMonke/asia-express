@@ -7,6 +7,38 @@ return [
     'intro' => 'Frisch zubereitet – vor Ort essen oder zur Abholung vorbestellen. Kein Lieferdienst.',
     'call' => 'Jetzt anrufen',
 
+    'nav' => [
+        'label' => 'Hauptnavigation',
+        'menu' => 'Speisekarte',
+        'about' => 'Über uns',
+        'contact' => 'Kontakt',
+    ],
+
+    'hero' => [
+        'logo_alt' => 'Logo von :name',
+        'open_now' => 'Jetzt geöffnet',
+        'closed_now' => 'Gerade geschlossen',
+        'today' => 'Heute geöffnet',
+        'closed_today' => 'Heute geschlossen',
+    ],
+
+    'menu' => [
+        'title' => 'Speisekarte',
+        'categories' => 'Kategorien der Speisekarte',
+        'note' => 'Die hochgestellten Kürzel stehen für Zusatzstoffe und Allergene. Die Legende finden Sie am Ende der Speisekarte.',
+        'empty' => 'Die Speisekarte folgt in Kürze.',
+    ],
+
+    'contact' => [
+        'title' => 'Kontakt',
+        'address' => 'Adresse',
+        'phone' => 'Telefon',
+        'map_notice' => 'Beim Laden der Karte werden Daten (z. B. Ihre IP-Adresse) an Google übertragen.',
+        'map_load' => 'Karte laden',
+        'map_open' => 'In Google Maps öffnen',
+        'map_title' => 'Karte: :address',
+    ],
+
     'about' => [
         'title' => 'Über uns',
         'text' => 'Bei :name kochen wir chinesische Gerichte frisch für Sie – von gebratenen Nudeln bis zu unseren beliebten Entengerichten. Unser Lokal ist klein und gemütlich.',
