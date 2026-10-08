@@ -11,6 +11,7 @@ return [
         'label' => 'Hauptnavigation',
         'menu' => 'Speisekarte',
         'about' => 'Über uns',
+        'checkout' => 'Bestellung abschließen',
         'contact' => 'Kontakt',
     ],
 
@@ -25,7 +26,10 @@ return [
     'menu' => [
         'title' => 'Speisekarte',
         'categories' => 'Kategorien der Speisekarte',
-        'note' => 'Die hochgestellten Kürzel stehen für Zusatzstoffe und Allergene. Die Legende finden Sie am Ende der Speisekarte.',
+        'all' => 'Ganze Karte',
+        'order_hint' => 'Tippen Sie auf ein Gericht, um es Ihrer Vorbestellung hinzuzufügen.',
+        'add' => ':name zur Bestellung hinzufügen',
+        'note' => 'Die hochgestellten Kürzel stehen für Zusatzstoffe und Allergene.',
         'empty' => 'Die Speisekarte folgt in Kürze.',
     ],
 

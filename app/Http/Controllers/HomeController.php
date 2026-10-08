@@ -33,6 +33,7 @@ class HomeController extends Controller
             'todayRanges' => $openingHours->rangesFor($now),
             'isOpen' => $openingHours->isOpenAt($now),
             'logoUrl' => $logoUrl,
+            'heroUrl' => Vite::asset('resources/images/gerichte/hero.webp'),
             'schema' => $this->schema($logoUrl),
         ]);
     }

@@ -1,5 +1,5 @@
-// Make the logo available to Vite::asset() in Blade.
-import.meta.glob(['../images/logo.jpeg'], { eager: true, query: '?url' });
+// Make the logo and the hero photo available to Vite::asset() in Blade.
+import.meta.glob(['../images/logo.jpeg', '../images/gerichte/hero.webp'], { eager: true, query: '?url' });
 
 // Map: the external iframe is only created after the visitor asks for it (DSGVO).
 document.querySelectorAll('[data-map]').forEach((container) => {

@@ -1,4 +1,7 @@
-<section class="bg-brand-red px-4 py-10 text-center text-brand-cream sm:py-14">
+{{-- Dish photo as background; the dark layer keeps the text readable. bg-brand-red-dark shows while the photo loads. --}}
+<section class="relative isolate bg-brand-red-dark bg-cover bg-center px-4 py-10 text-center text-brand-cream sm:py-14" style="background-image: url('{{ $heroUrl }}')">
+    <div class="absolute inset-0 -z-10 bg-brand-ink/65"></div>
+
     <img src="{{ $logoUrl }}" alt="{{ __('site.hero.logo_alt', ['name' => config('restaurant.name')]) }}" width="160" height="160"
         class="mx-auto size-32 rounded-full border-4 border-brand-gold object-cover shadow-lg sm:size-40">
 

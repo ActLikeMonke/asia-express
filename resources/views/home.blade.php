@@ -21,5 +21,6 @@
     @include('sections.hero')
     @include('sections.menu')
     @include('sections.about')
+    @include('sections.preorder')
     @include('sections.contact')
 @endsection

@@ -9,7 +9,7 @@ class TranslationsTest extends TestCase
 {
     public function test_german_and_english_have_the_same_keys(): void
     {
-        foreach (['site', 'admin', 'menu'] as $file) {
+        foreach (['site', 'admin', 'menu', 'preorder'] as $file) {
             $de = array_keys(Arr::dot(require lang_path("de/{$file}.php")));
             $en = array_keys(Arr::dot(require lang_path("en/{$file}.php")));
 

@@ -11,6 +11,7 @@ return [
         'label' => 'Main navigation',
         'menu' => 'Menu',
         'about' => 'About us',
+        'checkout' => 'Complete order',
         'contact' => 'Contact',
     ],
 
@@ -25,7 +26,10 @@ return [
     'menu' => [
         'title' => 'Menu',
         'categories' => 'Menu categories',
-        'note' => 'The superscript codes refer to additives and allergens. You will find the key at the end of the menu.',
+        'all' => 'Full menu',
+        'order_hint' => 'Tap a dish to add it to your pre-order.',
+        'add' => 'Add :name to the order',
+        'note' => 'The superscript codes refer to additives and allergens.',
         'empty' => 'The menu will follow shortly.',
     ],
 

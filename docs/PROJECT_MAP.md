@@ -13,11 +13,12 @@ asia-express/
 │   ├── OPEN_QUESTIONS.md      ungeklärte Punkte
 │   └── RESTAURANT.md          bestätigte Restaurant-Fakten
 ├── config/
-│   └── restaurant.php         Name, Adresse, Telefon, Öffnungszeiten, Sprachen, Mail-Empfänger
+│   └── restaurant.php         Name, Adresse, Telefon, Öffnungszeiten, Sprachen, Mail-Empfänger, Regeln für Vorbestellungen
 ├── lang/
 │   ├── de/site.php            UI-Texte Deutsch (Standard), inkl. Hero (`intro`) und Über uns (`about.*`)
 │   ├── en/site.php            UI-Texte Englisch
 │   ├── {de,en}/menu.php       Legende der Zusatzstoffe (1–13) und Allergene (A–N) wie auf der Karte
+│   ├── {de,en}/preorder.php   Texte für Formular, Fehlermeldungen, Erfolgsmeldung und Mail
 │   └── {de,en}/admin.php      Beschriftungen im Admin-Bereich
 ├── app/
 │   ├── Http/Controllers/
@@ -34,9 +35,9 @@ asia-express/
 │   ├── Providers/Filament/
 │   │   └── AdminPanelProvider.php   Konfiguration des Admin-Bereichs (Pfad, Farbe, Login)
 │   ├── Livewire/
-│   │   └── PreorderForm.php   (geplant) Vorbestellungs-Formular
+│   │   └── PreorderForm.php   Vorbestellungs-Formular: Validierung, Honeypot, Rate-Limit, Mailversand
 │   └── Mail/
-│       └── PreorderReceived.php   (geplant) Mail ans Restaurant
+│       └── PreorderReceived.php   Mail ans Restaurant (immer auf Deutsch)
 ├── database/
 │   ├── migrations/            menu_categories, menu_items
 │   └── seeders/
@@ -49,16 +50,16 @@ asia-express/
 │   ├── views/
 │   │   ├── layouts/app.blade.php            Grundlayout, Header mit Anker-Navigation und Sprachumschalter, Footer
 │   │   ├── home.blade.php                   One-Pager: SEO-Tags, JSON-LD, bindet die Sektionen ein
-│   │   ├── sections/                        hero, menu, about, contact; (geplant) preorder
-│   │   ├── livewire/preorder-form.blade.php (geplant)
-│   │   ├── mail/preorder-received.blade.php (geplant)
+│   │   ├── sections/                        hero, menu, about, preorder, contact
+│   │   ├── livewire/preorder-form.blade.php Formular und Erfolgsmeldung
+│   │   ├── mail/preorder-received.blade.php HTML-Mail mit Inline-Styles
 │   │   ├── impressum.blade.php              (geplant)
 │   │   └── datenschutz.blade.php            (geplant)
 │   ├── js/app.js              Karte erst nach Klick laden; macht das Logo für `Vite::asset()` verfügbar
 │   └── css/app.css            Tailwind, Theme-Farben `brand-*` (Rot/Gold), Schriften
 ├── vite.config.js             Vite, Tailwind, lokale Fonts aus `@fontsource`-Paketen
 ├── routes/web.php             / (Deutsch), /en (Englisch); geplant: /impressum, /datenschutz
-└── tests/                     Unit: Öffnungszeiten/Feiertage. Feature: Seite lädt in beiden Sprachen, Sektionen, SEO, Karte ohne Einbettung, Seeder/Models, Admin-Bereich nur mit Login, Sprachdateien vollständig; geplant: Formular validiert, Mail wird verschickt
+└── tests/                     Unit: Öffnungszeiten/Feiertage. Feature: Seite lädt in beiden Sprachen, Sektionen, SEO, Karte ohne Einbettung, Seeder/Models, Admin-Bereich nur mit Login, Sprachdateien vollständig, Formular validiert, Mail wird verschickt
 ```
 
 ## Seitenaufbau (One-Pager, Reihenfolge)
@@ -70,5 +71,6 @@ asia-express/
 6. **Footer** – Impressum, Datenschutz
 
 ## Datenfluss Vorbestellung
-Formular (Livewire) → Validierung → Mail an `config('restaurant.order_email')` → Erfolgsmeldung.
+Tippen auf ein Gericht → Warenkorb im Browser (Alpine, `layouts/app.blade.php`) → Ereignis `cart-set` an `PreorderForm`
+(prüft Gerichte gegen die DB) → Formular (Livewire) → Validierung → Mail an `config('restaurant.order_email')` → Erfolgsmeldung.
 Keine Speicherung in der DB (Phase 1).

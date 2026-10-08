@@ -55,6 +55,12 @@ Dann im Browser öffnen:
 | http://localhost:8000/en | Webseite auf Englisch |
 | http://localhost:8000/admin | Admin-Bereich: Kategorien, Gerichte, Preise, Allergene pflegen |
 
+## Vorbestellungen testen
+
+Lokal werden keine echten Mails verschickt (`MAIL_MAILER=log`): Die Mail ans Restaurant steht nach dem Absenden
+des Formulars in `storage/logs/laravel.log`. Der Empfänger wird in `.env` über `RESTAURANT_ORDER_EMAIL` gesetzt.
+Pro IP-Adresse sind 5 Vorbestellungen pro Stunde möglich; `php artisan cache:clear` setzt das Limit zurück.
+
 ## Nützliche Befehle
 
 ```

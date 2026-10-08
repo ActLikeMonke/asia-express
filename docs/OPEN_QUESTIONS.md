@@ -4,10 +4,10 @@ Beantwortete Fragen nach `RESTAURANT.md` bzw. ins Backlog übernehmen und hier l
 Nummern bleiben stabil (das Backlog verweist darauf), deshalb gibt es Lücken.
 
 ## Inhaber fragen
-2. An welche E-Mail-Adresse sollen Vorbestellungen gehen? Wird die während der Öffnungszeiten gelesen?
-3. Mindestvorlauf für Vorbestellungen (z. B. 20 Min.)? Bis wann vor Ladenschluss?
-4. Bestätigt der Inhaber Vorbestellungen (Rückruf/Mail), oder gilt „abgeschickt = bestellt“?
-6. Impressum: USt-IdNr. vorhanden? (Inhabername ist bestätigt.)
+2. An welche E-Mail-Adresse sollen Vorbestellungen gehen? Wird die während der Öffnungszeiten gelesen? – Demo: ohne `RESTAURANT_ORDER_EMAIL` in `.env` geht die Mail an die Absender-Adresse (lokal ins Log).
+3. Mindestvorlauf für Vorbestellungen (z. B. 20 Min.)? Bis wann vor Ladenschluss? – Demo-Annahme in `config/restaurant.php`: 20 Min. Vorlauf, höchstens 7 Tage im Voraus, Abholung bis Ladenschluss.
+4. Bestätigt der Inhaber Vorbestellungen (Rückruf/Mail), oder gilt „abgeschickt = bestellt“? – Demo: neutrale Meldung „Ihre Vorbestellung ist bei uns eingegangen“ (`lang/*/preorder.php`).
+6. Impressum: USt-IdNr. vorhanden? (Inhabername ist bestätigt.) – Zurückgestellt: erst nach der Demo beim Inhaber klären, Rechtliches kommt später.
 17. Allergen-/Zusatzstoff-Kürzel gegen die gedruckte Karte prüfen (Foto von Seite 2 ist zu klein, um die hochgestellten Kürzel sicher zu lesen). Im Seeder eingetragen, aber unsicher: Krabbenchips `5, A, B` · Sambal Oelek `5` · Cola `1, 3, 5` · Cola light `1, 3, 5, 10` · Fanta `1, 2, 5` · Sprite `5` · Apfelschorle `5`. Am besten ein schärferes Foto von Seite 2 ablegen. Korrekturen danach im Admin-Bereich (`/admin`).
 18. Öffnungszeiten an Feiertagen: Die Karte nennt „Montag bis Sonntag & Feiertage 11:30–15:00 & 17:00–22:00, samstags 17:00–22:00“. `RESTAURANT.md` und `config/restaurant.php` sagen: an Feiertagen nur 17:00–22:00. Was stimmt?
 19. Druckfehler der Karte wurden im Seeder korrigiert („Chop-Seuy“ → „Chop-Suey“, „Karton-Art“ → „Kanton-Art“, „Broccolie“ → „Brokkoli“). In Ordnung? Und: Sind mit „Sojabohnen“ (Nr. 19, 42) Sojasprossen gemeint? Englisch steht derzeit wörtlich „soybeans“.

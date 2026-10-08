@@ -12,20 +12,37 @@
         @fonts
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-brand-cream font-sans text-brand-ink antialiased">
+    {{-- The cart lives here (dish id => quantity). Every change is sent as a whole to the PreorderForm component. --}}
+    <body class="bg-brand-cream font-sans text-brand-ink antialiased"
+        x-data="{
+            cart: {},
+            get count() { return Object.values(this.cart).reduce((sum, quantity) => sum + quantity, 0) },
+            change(id, by) {
+                const quantity = Math.min(Math.max((this.cart[id] || 0) + by, 0), 20);
+                if (quantity) { this.cart[id] = quantity } else { delete this.cart[id] }
+                Livewire.dispatch('cart-set', { cart: this.cart });
+            },
+        }"
+        @cart-cleared.window="cart = {}">
         <header class="sticky top-0 z-10 bg-brand-red text-brand-cream shadow">
-            <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-4 py-2 sm:py-3">
-                <a href="{{ app()->getLocale() === 'en' ? route('en.home') : route('home') }}" class="font-display text-xl font-bold text-brand-gold">
+            {{-- Mobile: brand + order button in the first row, links + language in the second. --}}
+            <div class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-5 gap-y-1 px-4 py-2 md:py-3">
+                <a href="{{ app()->getLocale() === 'en' ? route('en.home') : route('home') }}" class="font-display text-lg font-bold text-brand-gold sm:text-xl">
                     {{ config('restaurant.name') }}
                 </a>
 
-                <nav aria-label="{{ __('site.nav.label') }}" class="order-3 flex w-full justify-between gap-4 text-sm font-medium sm:order-2 sm:ml-auto sm:w-auto sm:justify-start sm:gap-6">
+                <a href="#preorder" class="ml-auto flex items-center gap-2 rounded-full bg-brand-gold px-3 py-1.5 text-xs font-semibold whitespace-nowrap text-brand-ink sm:text-sm md:order-last md:ml-0">
+                    {{ __('site.nav.checkout') }}
+                    <span x-show="count > 0" x-cloak x-text="count" class="min-w-6 rounded-full bg-brand-red px-1.5 text-center text-xs leading-6 text-brand-cream"></span>
+                </a>
+
+                <nav aria-label="{{ __('site.nav.label') }}" class="flex gap-4 text-sm font-medium md:ml-auto md:gap-6">
                     <a href="#menu" class="py-1 hover:text-brand-gold-light">{{ __('site.nav.menu') }}</a>
                     <a href="#about" class="py-1 hover:text-brand-gold-light">{{ __('site.nav.about') }}</a>
                     <a href="#contact" class="py-1 hover:text-brand-gold-light">{{ __('site.nav.contact') }}</a>
                 </nav>
 
-                <nav aria-label="{{ __('site.language') }}" class="order-2 flex gap-3 text-sm font-medium sm:order-3">
+                <nav aria-label="{{ __('site.language') }}" class="ml-auto flex gap-3 text-sm font-medium md:ml-0">
                     <a href="{{ route('home') }}" lang="de" hreflang="de" @class(['underline underline-offset-4' => app()->getLocale() === 'de'])>DE</a>
                     <a href="{{ route('en.home') }}" lang="en" hreflang="en" @class(['underline underline-offset-4' => app()->getLocale() === 'en'])>EN</a>
                 </nav>

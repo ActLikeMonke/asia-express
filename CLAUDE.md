@@ -6,6 +6,7 @@ Kontext für KI-Agenten (Claude Code u. a.). Kurz halten, bei Änderungen aktual
 One-Pager-Webseite für den China-Imbiss **Asia Express**, Kaiserstraße 85, 52146 Würselen.
 Ziel: Speisekarte, Öffnungszeiten, Kontakt und ein einfaches **Vorbestellungs-Formular** (Abholung), das als E-Mail beim Restaurant ankommt.
 Kein Lieferdienst, keine Online-Zahlung (siehe Phase 2 im Backlog).
+Erstes Ziel ist eine **Demo für den Inhaber**: so fertig wie möglich; Rechtliches (Impressum, Datenschutzerklärung) erst danach.
 
 ## Stack
 - Laravel (aktuelle Version) + Livewire
