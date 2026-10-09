@@ -1,8 +1,11 @@
 # Backlog – Asia Express Würselen
 
-Status: `todo` · `doing` · `done` · `blocked`
+Status: `todo` · `doing` · `done` · `blocked` · `later` (nach der Demo)
 Priorität: P1 = für Launch nötig · P2 = sollte · P3 = später
 Fragen-Nummern beziehen sich auf `OPEN_QUESTIONS.md`.
+
+**Erstes Ziel: Demo für den Inhaber.** Die Seite soll dafür so fertig wie möglich sein.
+Rechtliches (Impressum, Datenschutzerklärung) ist auf nach der Demo verschoben (`later`) – vor dem Launch aber Pflicht.
 
 ## Epic 0 – Setup
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
@@ -17,41 +20,41 @@ Fragen-Nummern beziehen sich auf `OPEN_QUESTIONS.md`.
 ## Epic 1 – Inhalte
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
 |---|---|---|---|---|
-| C-01 | Speisekarten-Fotos in `resources/images/speisekarte/` ablegen | P1 | todo | Alle Seiten der Karte vorhanden und lesbar |
-| C-02 | Migrationen + Models `MenuCategory`, `MenuItem` | P1 | todo | Felder: Nummer, Name und Beschreibung (DE + EN), Preis (Cent, int), Sortierung, Allergene (nullable) |
-| C-03 | `MenuSeeder`: Karte abtippen | P1 | blocked (C-01) | Alle Gerichte/Preise/Allergene wie auf der Karte, nichts erfunden; englische Namen übersetzt |
-| C-04 | Essensfotos auswählen und optimieren (WebP, ~200 KB) | P2 | todo | Liegen in `resources/images/gerichte/`; Originale haben geringe Auflösung, daher nur klein einsetzen |
-| C-05 | Texte für Hero und Über uns | P1 | todo | Kurz, Deutsch und Englisch, nennt Abholung und „keine Lieferung“ |
-| C-06 | Admin-Bereich zur Pflege der Speisekarte (z. B. Filament) | P2 | todo | Inhaber kann nach Login Kategorien, Gerichte, Preise und Allergene ändern; ohne Login nicht erreichbar |
+| C-01 | Speisekarten-Fotos in `resources/images/speisekarte/` ablegen | P1 | done | Alle Seiten der Karte vorhanden und lesbar (Seite 2 nur in geringer Auflösung, siehe Frage 17) |
+| C-02 | Migrationen + Models `MenuCategory`, `MenuItem` | P1 | done | Felder: Nummer, Name und Beschreibung (DE + EN), Preis (Cent, int), Sortierung, Allergene (nullable), scharf |
+| C-03 | `MenuSeeder`: Karte abtippen | P1 | done | Alle Gerichte/Preise/Allergene wie auf der Karte, nichts erfunden; englische Namen übersetzt. Legende in `lang/*/menu.php`. Unsichere Kürzel: Frage 17 |
+| C-04 | Essensfotos auswählen und optimieren (WebP, ~200 KB) | P2 | doing | Ein Foto vorhanden (`Gericht1.jpg` → `hero.webp`, 1600 px, 141 KB, Hintergrund der Hero-Sektion); weitere fehlen. Liegen in `resources/images/gerichte/`; Originale haben geringe Auflösung, daher nur klein einsetzen |
+| C-05 | Texte für Hero und Über uns | P1 | done | Kurz, Deutsch und Englisch, nennt Abholung und „keine Lieferung“ (`site.intro`, `site.about.*`; Einbau der Über-uns-Sektion in P-04) |
+| C-06 | Admin-Bereich zur Pflege der Speisekarte (Filament, `/admin`) | P2 | done | Inhaber kann nach Login Kategorien, Gerichte, Preise und Allergene ändern; ohne Login nicht erreichbar. Konto anlegen: `php artisan make:filament-user` |
 
 ## Epic 2 – Seite bauen
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
 |---|---|---|---|---|
-| P-01 | Layout: Header (sticky, Anker-Navigation), Footer | P1 | todo | Mobil kompakte Navigation |
-| P-02 | Hero-Sektion | P1 | todo | Foto, Name, `tel:`-Button, heutige Öffnungszeit |
-| P-03 | Speisekarte-Sektion | P1 | blocked (C-03) | Kategorien als Tabs/Sprungmarken, Preise rechtsbündig, mobil lesbar |
-| P-04 | Über-uns-Sektion | P2 | todo | Frisch zubereitet, Vorbestellung möglich |
-| P-05 | Kontakt-Sektion | P1 | todo | Adresse, Telefon, Öffnungszeiten-Tabelle, Karte DSGVO-konform |
-| P-06 | Anzeige „Jetzt geöffnet / geschlossen“ | P3 | todo | Aus Config, Zeitzone Europe/Berlin, Samstag und Feiertage (NRW) nur 17–22 Uhr |
-| P-07 | SEO-Grundlagen | P2 | todo | Title, Description, Open-Graph-Bild, `schema.org/Restaurant` JSON-LD |
+| P-01 | Layout: Header (sticky, Anker-Navigation), Footer | P1 | done | Mobil kompakte Navigation (zweizeilig, ohne JavaScript). Footer-Links zu Impressum/Datenschutz folgen mit L-01/L-02; Anker „Vorbestellung“ mit O-01 |
+| P-02 | Hero-Sektion | P1 | done | Foto, Name, `tel:`-Button, heutige Öffnungszeit. Essensfoto als abgedunkelter Hintergrund, darauf das Logo |
+| P-03 | Speisekarte-Sektion | P1 | done | Kategorien als Tabs: immer nur eine Kategorie sichtbar, Wechsel über Tabs oder „nächste Kategorie“; Preise rechtsbündig, mobil lesbar |
+| P-04 | Über-uns-Sektion | P2 | done | Frisch zubereitet, Vorbestellung möglich |
+| P-05 | Kontakt-Sektion | P1 | done | Adresse, Telefon, Öffnungszeiten-Tabelle, Karte DSGVO-konform (Google Maps erst nach Klick, zusätzlich Link) |
+| P-06 | Anzeige „Jetzt geöffnet / geschlossen“ | P3 | done | Aus Config, Zeitzone Europe/Berlin, Samstag und Feiertage (NRW) nur 17–22 Uhr (`App\Support\OpeningHours`; Feiertagszeiten siehe Frage 18) |
+| P-07 | SEO-Grundlagen | P2 | done | Title, Description, Open-Graph-Bild (Logo), `schema.org/Restaurant` JSON-LD, Canonical + hreflang |
 
 ## Epic 3 – Vorbestellung
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
 |---|---|---|---|---|
-| O-01 | Livewire-Komponente `PreorderForm` | P1 | todo | Felder: Name, Telefon, Gerichte, Abholzeit, Anmerkung |
-| O-02 | Validierung | P1 | blocked (Frage 3) | Pflichtfelder; Abholzeit in Öffnungszeiten + Mindestvorlauf |
-| O-03 | Mail `PreorderReceived` ans Restaurant | P1 | blocked (Frage 2) | Übersichtlich, auf dem Handy gut lesbar |
-| O-04 | Spam-Schutz | P1 | todo | Honeypot + Rate-Limit pro IP |
-| O-05 | Datenschutz-Hinweis am Formular | P1 | todo | Link zur Datenschutzerklärung, Pflicht-Checkbox |
-| O-06 | Erfolgsmeldung nach Absenden | P1 | blocked (Frage 4) | Text passt zur Absprache mit Inhaber (Bestätigung ja/nein) |
-| O-07 | Feature-Tests | P2 | todo | Validierung + `Mail::fake()` |
+| O-01 | Livewire-Komponente `PreorderForm` | P1 | done | Gerichte per Tippen in der Speisekarte (Warenkorb mit Menge und Summe), dann Abholung („Jetzt bestellen“ als Standard mit Hinweis „in etwa 20 Minuten fertig“, oder „Für später“ mit Abholzeit), Name, Telefon, Anmerkung. Button „Bestellung abschließen“ im Header |
+| O-02 | Validierung | P1 | done (Demo-Werte, Frage 3) | Pflichtfelder; Abholzeit in Öffnungszeiten + Mindestvorlauf. Vorlauf 20 Min. und max. 7 Tage im Voraus sind Annahmen in `config/restaurant.php` |
+| O-03 | Mail `PreorderReceived` ans Restaurant | P1 | done (Empfänger offen, Frage 2) | Übersichtlich, auf dem Handy gut lesbar. Ohne `RESTAURANT_ORDER_EMAIL` geht die Mail an die Absender-Adresse (lokal ins Log) |
+| O-04 | Spam-Schutz | P1 | done | Honeypot + Rate-Limit pro IP (5 pro Stunde) |
+| O-05 | Datenschutz-Hinweis am Formular | P1 | done (Link fehlt) | Pflicht-Checkbox; Link zur Datenschutzerklärung erst mit L-02 (nach der Demo) |
+| O-06 | Erfolgsmeldung nach Absenden | P1 | done (neutraler Text, Frage 4) | Text passt zur Absprache mit Inhaber (Bestätigung ja/nein). Derzeit neutral: „ist bei uns eingegangen“ |
+| O-07 | Feature-Tests | P2 | done | Validierung + `Mail::fake()` |
 
 ## Epic 4 – Recht
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
 |---|---|---|---|---|
-| L-01 | Impressum | P1 | blocked (Frage 6) | Angaben nach § 5 DDG |
-| L-02 | Datenschutzerklärung | P1 | todo | Deckt Hosting, Formular, Mailversand ab (Generator nutzen) |
-| L-03 | Allergen-Kennzeichnung | P1 | blocked (C-03) | Allergene je Gericht wie auf der Karte, mit Legende |
+| L-01 | Impressum | P1 | later (Frage 6) | Angaben nach § 5 DDG |
+| L-02 | Datenschutzerklärung | P1 | later | Deckt Hosting, Formular, Mailversand und die Google-Maps-Karte (Laden nach Klick) ab (Generator nutzen) |
+| L-03 | Allergen-Kennzeichnung | P1 | done | Allergene je Gericht wie auf der Karte, mit Legende (in der Speisekarte-Sektion; unsichere Kürzel siehe Frage 17) |
 
 ## Epic 5 – Launch
 | ID | Aufgabe | Prio | Status | Akzeptanzkriterien |
@@ -67,6 +70,6 @@ Fragen-Nummern beziehen sich auf `OPEN_QUESTIONS.md`.
 ## Phase 2 – später, nicht anfangen
 | ID | Aufgabe | Prio |
 |---|---|---|
-| X-01 | Warenkorb-Bestellung mit Gerichtauswahl aus DB | P3 |
+| X-01 | Warenkorb-Bestellung mit Gerichtauswahl aus DB – vorgezogen und erledigt (siehe O-01) | P3 |
 | X-02 | Bestell-Dashboard fürs Restaurant (neu / angenommen / fertig) | P3 |
 | X-04 | Online-Zahlung | P3 |

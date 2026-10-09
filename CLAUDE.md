@@ -6,9 +6,11 @@ Kontext für KI-Agenten (Claude Code u. a.). Kurz halten, bei Änderungen aktual
 One-Pager-Webseite für den China-Imbiss **Asia Express**, Kaiserstraße 85, 52146 Würselen.
 Ziel: Speisekarte, Öffnungszeiten, Kontakt und ein einfaches **Vorbestellungs-Formular** (Abholung), das als E-Mail beim Restaurant ankommt.
 Kein Lieferdienst, keine Online-Zahlung (siehe Phase 2 im Backlog).
+Erstes Ziel ist eine **Demo für den Inhaber**: so fertig wie möglich; Rechtliches (Impressum, Datenschutzerklärung) erst danach.
 
 ## Stack
 - Laravel (aktuelle Version) + Livewire
+- Admin-Bereich: Filament unter `/admin` (Assets in `public/*/filament` sind nicht im Repo; `composer install` bzw. `php artisan filament:assets` erzeugt sie)
 - Tailwind CSS (über Vite)
 - Datenbank: SQLite lokal, MySQL/MariaDB auf dem Hoster
 - Mail: Laravel Mail (SMTP des Hosters)
@@ -28,6 +30,7 @@ php artisan migrate --seed          # DB inkl. Speisekarte
 composer run dev                    # Server + Vite (falls im Starter-Kit vorhanden)
 php artisan serve / npm run dev     # alternativ getrennt
 php artisan test                    # Tests
+php artisan make:filament-user      # Login für den Admin-Bereich (/admin) anlegen
 ```
 
 ## Regeln für Agenten
